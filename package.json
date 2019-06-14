@@ -4,7 +4,7 @@
   "description": "webpack demo",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --config ./build/webpack.dev.config.js --color --progress",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.dev.config.js --color --progress",
     "build": "webpack --mode production"
   },
   "author": "",

@@ -5,6 +5,7 @@ const baseConfig = require('./webpack.base.config.js')
 
 module.exports = merge(baseConfig, {
   mode: 'development',
+  hot: true,
   devtool: 'cheap-module-eval-source-map',
   // plugins: [
     // 开启HMR(热替换功能,替换更新部分,不重载页面！) 相当于在命令行加 --hot
