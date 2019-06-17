@@ -5,8 +5,7 @@ import React, { Component } from 'react'
 import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import { BrowserRouter } from 'react-router-dom'
-import router from './router/index'
-import Counter from './views/Counter.jsx'
+import Router from './router/index'
 class Button extends Component {
   render() {
     return <h1>Hello,Webpack</h1>
@@ -36,11 +35,11 @@ if (module.hot) {
 function renderWithHotReload(Router) {
   render(
     <AppContainer>
-      <Button />
+      <BrowserRouter>
+        <Router></Router>
+      </BrowserRouter>
     </AppContainer>,
     document.getElementById('app')
   )
 }
-renderWithHotReload()
-
-// // renderWithHotReload(router)
+renderWithHotReload(Router)

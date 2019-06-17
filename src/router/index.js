@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, Link, Switch } from 'react-router-dom'
 
-import Home from '../views/Home.jsx'
-import Counter from '../views/Counter.jsx'
+import Home from '@/views/Home/Home'
+import Counter from '@/views/Counter'
 
 const PrimaryLayout = () => (
   <div className="primary-layout">
