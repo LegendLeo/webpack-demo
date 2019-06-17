@@ -14,6 +14,12 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].[hash:8].js'
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    alias: {
+      '@': path.resolve(__dirname, '../src/')
+    }
+  },
   module: {
     rules: [
       {
