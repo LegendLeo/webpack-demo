@@ -1,4 +1,0 @@
-{
-  "presets": ["@babel/react", "@babel/env"],
-  "plugins": ["react-hot-loader/babel", "syntax-dynamic-import"]
-}
