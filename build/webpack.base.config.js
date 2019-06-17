@@ -12,7 +12,8 @@ module.exports = {
   // }, // webpack4默认入口为./src/index.js
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].[hash:8].js'
+    filename: '[name].[hash:8].js',
+    chunkFilename: '[name].[contenthash].js'
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -66,7 +67,8 @@ module.exports = {
       }
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css'
+      filename: '[name].[contenthash:8].css',
+      chunkFilename: '[id].css'
     }),
     new webpack.ProvidePlugin({
       _: 'lodash'

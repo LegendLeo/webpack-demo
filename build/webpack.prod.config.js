@@ -2,6 +2,7 @@ const path = require('path')
 const merge = require('webpack-merge')
 const PurifyCSS = require('purifycss-webpack')
 const glob = require('glob-all')
+const OptimizeCSS = require('optimize-css-assets-webpack-plugin')
 const baseConfig = require('./webpack.base.config')
 
 module.exports = merge(baseConfig, {
@@ -14,6 +15,7 @@ module.exports = merge(baseConfig, {
         path.resolve(__dirname, '../src/*.js'),
         path.resolve(__dirname, '../src/**/*.jsx')
       ])
-    })
+    }),
+    new OptimizeCSS({})
   ]
 })
