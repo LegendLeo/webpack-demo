@@ -11,7 +11,7 @@ module.exports = {
   //   ],
   // }, // webpack4默认入口为./src/index.js
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: '[name].[hash:8].js'
   },
   module: {
@@ -19,7 +19,9 @@ module.exports = {
       {
         test: /\.less$/,
         use: [
-          process.env.NODE_ENV === 'development' ? 'style-loader': MiniCssExtractPlugin.loader,
+          process.env.NODE_ENV === 'development'
+            ? 'style-loader'
+            : MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
           'less-loader'
@@ -39,22 +41,19 @@ module.exports = {
       },
       {
         test: /.jsx?$/,
-        include: [
-          path.resolve(__dirname, 'src')
-        ],
-        use: [
-          'babel-loader'
-        ]
+        include: [path.resolve(__dirname, '../src')],
+        use: ['babel-loader']
       }
     ]
   },
   plugins: [
     new CleanWebpackPlugin(), // 每次构建前清理dist文件夹
     new HtmlPlugin({
-      template: path.resolve(__dirname, '..', 'src/index.html'), // 指定模板路径
+      template: path.resolve(__dirname, '../src/index.html'), // 指定模板路径
       filename: 'index.html',
       title: 'webpack-react',
-      minify: { // 压缩 HTML 的配置
+      minify: {
+        // 压缩 HTML 的配置
         collapseWhitespace: true, // 去除HTML中的空白
         minifyCSS: true, // 压缩HTML中出现的CSS代码
         minifyJS: true // 压缩HTML中出现的JS代码
@@ -64,7 +63,7 @@ module.exports = {
       filename: '[name].[contenthash].css'
     }),
     new webpack.ProvidePlugin({
-      '_': 'lodash'
+      _: 'lodash'
     }),
     new webpack.DefinePlugin({
       'process.env': {
@@ -76,5 +75,6 @@ module.exports = {
     splitChunks: {
       chunks: 'all'
     }
-  }
+  },
+  performance: false
 }
